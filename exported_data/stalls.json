@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5de1cab2fda1e74b0956ab77"},"stall_id":1,"name":"Chile Chicos","img_path":"static/images/chile_chicos/stall.JPG"}
+{"_id":{"$oid":"5de1caddfda1e74b0956ab78"},"stall_id":2,"name":"Big Fat Rolls","img_path":"static/images/big_fat_rolls/stall.JPG"}
+{"_id":{"$oid":"5de1cafdfda1e74b0956ab79"},"stall_id":3,"name":"8-Bite","img_path":"static/images/8_bite/stall.JPG"}

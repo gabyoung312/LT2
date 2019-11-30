@@ -1,0 +1,9 @@
+{"_id":{"$oid":"5de1d3c3fda1e74b0956ab7a"},"code":1,"stall_id":1,"name":"El Primo","img_path":"/static/images/chile_chicos/products/el_primo.JPG","price":200.0}
+{"_id":{"$oid":"5de1d48ab9965a7e865f4106"},"code":2,"stall_id":1,"name":"Pollo Taco","img_path":"/static/images/chile_chicos/products/pollo_taco.JPG","price":200.0}
+{"_id":{"$oid":"5de1d4a8b9965a7e865f4107"},"code":3,"stall_id":1,"name":"Pork Carnitas","img_path":"/static/images/chile_chicos/products/pork_carnitas.JPG","price":200.0}
+{"_id":{"$oid":"5de1fe9ab9965a7e865f4125"},"code":4,"stall_id":2,"name":"Beef Bulgogi","price":200.0,"img_path":"static/images/big_fat_rolls/products/beef_bulgogi.JPG"}
+{"_id":{"$oid":"5de1febeb9965a7e865f4126"},"code":5,"stall_id":2,"name":"Chicken Teriyaki","price":200.0,"img_path":"static/images/big_fat_rolls/products/chicken_teriyaki.JPG"}
+{"_id":{"$oid":"5de1fef5b9965a7e865f4127"},"code":6,"stall_id":2,"name":"Kani Mango Crunch","price":200.0,"img_path":"static/images/big_fat_rolls/products/kani_mango_crunch.JPG"}
+{"_id":{"$oid":"5de1ffedb9965a7e865f4128"},"code":7,"stall_id":3,"name":"Dallas","price":85.0,"img_path":"static/images/8_bite/products/dallas.JPG"}
+{"_id":{"$oid":"5de20005b9965a7e865f4129"},"code":8,"stall_id":3,"name":"Miami","price":85.0,"img_path":"static/images/8_bite/products/miami.JPG"}
+{"_id":{"$oid":"5de20019b9965a7e865f412a"},"code":9,"stall_id":3,"name":"L.A.","price":85.0,"img_path":"static/images/8_bite/products/la.JPG"}
