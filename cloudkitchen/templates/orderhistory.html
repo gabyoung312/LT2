@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Order History{% endblock title %}
+
+{% block content %}
+    <h1>Order History</h1>
+
+    {% for order in past_orders %}
+        <table class="table table-sm">
+            {% set order_items = order["details"] %}
+            <tr>
+                <th>Order date</th>
+                <td colspan="2"> {{ order["orderdate"] }} </td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td colspan="2"> {{ order["location"] }} </td>
+            </tr>
+            <tr>
+                <th>Stall</th>
+                <th>Items</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+
+            {% for item in order_items %}
+                <tr>
+                    <td>{{ item["stall"] }}</td>
+                    <td>{{ item["name"] }}</td>
+                    <td>{{ item["qty"] }}</td>
+                    <td>{{ item["subtotal"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+{% endblock content %}

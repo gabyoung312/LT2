@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}Stalls{% endblock title %}
+
+{% block head %}
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+{% endblock head %}
+
+{% block content %}
+    <h1>Stalls</h1>
+
+    <ul>
+        {% for stall in stall_list %}
+            <li>
+                <a href="stalldetails?code={{ stall["stall_id"] }}">
+                    <figure class="figure">
+                        <figcaption class="figure-caption"><h3>{{ stall["name"] }}</h3></figcaption>
+                        <img class="figure-img img-fluid rounded" src="{{ stall["img_path"] }}"
+                             alt="{{ stall["name"] }}" width="400">
+                    </figure>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

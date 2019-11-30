@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ stall["name"] }} > Products{% endblock title %}
+
+{% block content %}
+    <h1>{{ stall["name"] }} > Products</h1>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Image</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td><a href="productdetails?code={{ product["code"] }}">{{ product['code'] }}</a></td>
+                    <td><a href="productdetails?code={{ product["code"] }}">{{ product['name'] }}</a></td>
+                    <td class="text-center"><a href="productdetails?code={{ product["code"] }}">
+                        <img src="{{ product['img_path'] }}" width="200" alt="{{ product['name'] }}"></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="/stalls" class="btn btn-secondary">Back</a>
+{% endblock content %}

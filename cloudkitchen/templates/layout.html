@@ -1,0 +1,76 @@
+<html>
+<header>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="static/styles/layout.css">
+    <style>
+        .footer {
+            font-size: 10px;
+        }
+    </style>
+    <title>{% block title %}{% endblock title %}</title>
+
+    {% block head %}
+    {% endblock head %}
+</header>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Cloud Kitchen</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/aboutus">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/stalls">Stalls</a>
+            </li>
+            {% if session["user"] is defined %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/orderhistory">View Order History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/change_page">Change Password</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart">View Food Tray</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="footer">
+        Copyright (c) 2019 Digital Coffee Inc. All rights reserved.
+        <p/>
+        View our privacy policy <a href="privacy.html">here</a>.
+    </div>
+</div>
+
+</body>
+</html>

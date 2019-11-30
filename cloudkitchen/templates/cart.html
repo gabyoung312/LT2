@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}Food Tray{% endblock title %}
+
+{% block content %}
+    <h1>Food Tray</h1>
+
+    {% if session["cart"] is defined %}
+
+        {% for item in session["cart"].values() %}
+            <form action="/updatecart" method="POST" id="{{ item['code'] }}"></form>
+            <form action="/checkout" method="POST" id="checkout"></form>
+        {% endfor %}
+
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Stall</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+
+            {% for item in session["cart"].values() %}
+                <tr>
+                    <td>{{ item["stall"] }}</td>
+                    <td>{{ item["name"] }}</td>
+                    <td><input type="number" name="quantity" value="{{ item['qty'] }}"
+                               min="1" step="1" pattern="\d*" form="{{ item['code'] }}"></td>
+                    <td>{{ item["subtotal"] }}</td>
+                    <td>
+                        <input type="hidden" name="code" value="{{ item['code'] }}" form="{{ item['code'] }}">
+                        <input type="submit" name="submit" value="Update" form="{{ item['code'] }}"
+                               class="btn btn-secondary">
+                    </td>
+                    <td><input type="submit" name="submit" value="Remove" form="{{ item['code'] }}"
+                               class="btn btn-danger"></td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <td colspan="2"><b>Total</b></td>
+                <td colspan="3"><b>{{ session["cart"].values()|sum(attribute="subtotal") }}</b></td>
+            </tr>
+        </table>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <select form="checkout" class="form-control" required="required" name="location" id="location">
+                {% for location in location_list %}
+                    <option value="{{ location["name"] }}">{{ location["name"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <input type="submit" value="Checkout" form="checkout" class="btn btn-success">
+    {% else %}
+        <div>Your food tray is empty</div>
+    {% endif %}
+
+{% endblock content %}
